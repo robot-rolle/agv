@@ -1,0 +1,25 @@
+
+<launch>
+  <!-- /**
+   * @Date: 2022-08-30 00:30:32
+   * @Input :发布话题
+   * @Functonname :
+   * @MethodAuthor: Rolle,robot_luoer@163.com
+   * @Description : 
+   * @功能 :
+  */ -->
+  <arg name="odom_frame_id"  default="odom_combined"/>
+  <node pkg="hg_robot_agv" type="hg_robot_node" name="hg_robot" output="screen" respawn="false">
+    <!-- 打开esp串口 -->
+    <param name="usart_port_name"        type="string" value="/dev/hgrobot_controller"/>  
+    <!-- 打开uwb串口  usb名自定义 配置usb -->
+    <param name="usart_port_name_uwb"    type="string" value="/dev/hgrobot_uwb"/>       
+    <!-- 串口波特率 -->
+    <param name="serial_baud_rate"       type="int"    value="115200"/>                  
+    <param name="serial_baud_rate_uwb"   type="int"    value="115200"/>
+      <!-- 三个坐标系上传到服务器，后面tf变换使用。 变量名   变量类型  变量值 -->
+    <param name="odom_frame_id"      type="string" value="$(arg odom_frame_id)"/> 
+    <param name="robot_frame_id"     type="string" value="base_footprint"/> 
+    <param name="gyro_frame_id"      type="string" value="gyro_link"/> 
+  </node>
+</launch>

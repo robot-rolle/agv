@@ -1,0 +1,4 @@
+<launch>
+     <node pkg ="map_server" type="map_saver" name="hgmap_saver" args="-f /home/hgf/hg_robot/src/hg_robot_agv/map/HGROBOT" output="screen">
+     </node>
+    </launch>

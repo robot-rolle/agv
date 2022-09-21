@@ -1,0 +1,12 @@
+<launch>
+	<param name="robot_description" textfile="$(find hg_robot_description)/urdf/hgrobot_agv.urdf" />
+
+	<param name="use_gui" value="true"/>
+	<!-- 运行joint_state_publisher节点，发布机器人的关节状态  -->
+	<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+	
+	<!-- 运行robot_state_publisher节点，发布tf  -->
+	<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+	<!-- <node name="rviz" pkg="rviz"  type="rviz" args="-d $(find hg_robot_description)/rviz/hgrobot_urdf.rviz" required="true"/>	 -->
+
+    </launch>
